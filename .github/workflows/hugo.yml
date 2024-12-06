@@ -1,0 +1,24 @@
+name: Deploy Hugo Site to Home Server
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Build Hugo site
+        run: |
+          hugo --minify --destination public --baseURL "https://jackj.net/"
+
+      - name: Deploy Hugo site
+        run: |
+          rsync -avz --delete public/ /srv/jackj.net/
