@@ -1,0 +1,12 @@
+/public/
+/resource/_gen/
+
+hugo_stats.json
+
+.DS_Store
+
+*.log
+*.swp
+*.swo
+*.tmp
+*.bak
