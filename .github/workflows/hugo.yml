@@ -1,51 +1,29 @@
-name: Deploy Hugo site to Home Server
+name: Deploy Hugo Site to Home Server
 
 on:
   push:
-    branches: ["main"]
-
+    branches:
+      - main
   workflow_dispatch:
 
-defaults:
-  run:
-    shell: bash
-
 jobs:
-  # Build job
-  build:
-    runs-on: ubuntu-latest
-    env:
-      HUGO_VERSION: 0.128.0
+  deploy:
+    runs-on: self-hosted
     steps:
-      - name: Install Hugo CLI
-        run: |
-          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
-          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
-      - name: Install Dart Sass
-        run: sudo snap install dart-sass
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
           submodules: recursive
-      - name: Build with Hugo
-        env:
-          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
-          HUGO_ENVIRONMENT: production
-        run: |
-          hugo \
-            --minify \
-            --baseURL "https://jackj.net/"
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to Home Server
-        uses: appleboy/scp-action@v0.2.1
-        with:
-          host: ${{ secrets.SERVER_HOST }}
-          username: ${{ secrets.SERVER_USER }}
-          port: 22
-          source: "./public/*"
-          target: "/srv/jackj.net/"
-          key: ${{ secrets.SERVER_SSH_KEY }}
+      - name: Install Hugo
+        run: |
+          wget -O hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.128.0/hugo_extended_0.128.0_linux-amd64.deb
+          sudo dpkg -i hugo.deb
+
+      - name: Build Hugo site
+        run: |
+          hugo --minify --destination public --baseURL "https://jackj.net/"
+
+      - name: Deploy Hugo site
+        run: |
+          sudo rsync -avz --delete public/ /srv/jackj.net/
