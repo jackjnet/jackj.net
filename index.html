@@ -5,44 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Jack's Site</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <script
+      src="https://kit.fontawesome.com/306111bc10.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
-  <body class="min-h-screen flex justify-center items-center font-sans">
-    <main class="text-center p-8">
-      <img
-        id="avatar"
-        src="images/avatar.webp"
-        width="384"
-        height="384"
-        alt="Profile Picture"
-        class="w-48 h-48 rounded-full mb-8 shadow-md"
-      />
-      <div class="flex justify-center gap-6">
-        <a
-          href="https://bsky.app/profile/jackj.net"
-          class="text-gray-700 text-2xl hover:text-blue-600 transition-colors"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="fa-brands fa-bluesky"></i>
-        </a>
-        <a
-          href="https://github.com/jackjnet"
-          class="text-gray-700 text-2xl hover:text-blue-600 transition-colors"
-          target="_blank"
-          rel="noopener noreferrer me"
-        >
-          <i class="fa-brands fa-github"></i>
-        </a>
-      </div>
-    </main>
+  <body>
+    <div class="center-container">
+      <main class="text-center p-8">
+        <img
+          id="avatar"
+          src="images/avatar.webp"
+          width="384"
+          height="384"
+          alt="Profile Picture"
+          class="w-48 h-48 rounded-full mb-8 shadow-md"
+        />
+        <div class="flex justify-center gap-6">
+          <a
+            href="https://bsky.app/profile/jackj.net"
+            class="text-gray-700 text-2xl hover:text-bskyblue transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+            alt="Visit my Bluesky!"
+          >
+            <i class="fa-brands fa-bluesky"></i>
+          </a>
+          <a
+            href="https://github.com/jackjnet"
+            class="text-gray-700 text-2xl hover:text-githubgreen transition-colors"
+            target="_blank"
+            rel="noopener noreferrer me"
+            alt="Check out my Github!"
+          >
+            <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </main>
+    </div>
     <script type="module" src="/src/main.js"></script>
-    <script>
-      window.si =
-        window.si ||
-        function () {
-          (window.siq = window.siq || []).push(arguments);
-        };
-    </script>
   </body>
 </html>

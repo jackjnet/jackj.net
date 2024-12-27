@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Reset margins and paddings */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Ensure the body takes up the full viewport */
+html,
+body {
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling */
+}
+
+/* Centering container */
+.center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+/* Profile picture styling */
+#avatar {
+  max-width: 100%;
+  max-height: 100%;
+}
