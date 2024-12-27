@@ -1,13 +1,16 @@
 <!doctype html>
 <html lang="en-US">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta
       name="description"
       content="Jack Jarosz's personal website featuring projects and links to Bluesky, Github, Linkedin, and more. Connect with me and come see my latest updates!"
     />
     <title>Jack's Site</title>
+    <link rel="authorization_endpoint" href="https://indieauth.com/auth">
+    <link rel="token_endpoint" href="https://tokens.indieauth.com/token">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
     <link
       rel="stylesheet"
@@ -16,6 +19,8 @@
   </head>
 
   <body>
+    <site-header></site-header>
+
     <div class="center-container">
       <main class="text-center p-8">
         <img
@@ -45,6 +50,14 @@
           >
             <i class="fa-brands fa-github"></i>
           </a>
+          <a
+            href="https://www.linkedin.com/in/jackjnet/"
+            class="text-gray-700 text-2xl hover:text-linkedinblue transition-colors"
+            target="_blank"
+            rel="noopner noreferrer"
+            title="Connect with me on LinkedIn!"
+          >
+            <i class="fa-brands fa-linkedin"></i>
         </div>
       </main>
     </div>
