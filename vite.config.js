@@ -1,9 +1,12 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  css: {
+    postcss: "./postcss.config.js",
+  },
   server: {
-    headers: {
-      "X-Content-Type-Options": "nosniff",
+    watch: {
+      additionalWatchFiles: ["./src/output.css"],
     },
   },
 });
