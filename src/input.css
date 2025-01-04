@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Reset margins and paddings */
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +12,7 @@
 html,
 body {
   height: 100%;
-  overflow: hidden; /* Prevent scrolling */
+  overflow: hidden;
 }
 
 /* Centering container */
@@ -41,7 +40,7 @@ nav ul {
   margin: 0;
   display: flex;
   justify-content: flex-end;
-  gap: 20px; /* Adjust spacing between items */
+  gap: 20px;
 }
 
 nav ul li {
@@ -57,5 +56,5 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #007bff; /* Change hover color */
+  color: #007bff;
 }
